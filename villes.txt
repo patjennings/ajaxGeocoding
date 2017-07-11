@@ -1,0 +1,13 @@
+NONE,NONE,VILLE
+vide,vide,Paris
+vide,vide,Nantes
+vide,vide,Quimper
+vide,vide,Caen
+vide,vide,Strasbourg
+vide,vide,Toulon
+vide,vide,Granville
+vide,vide,Rennes
+vide,vide,Vannes
+vide,vide,Vézac
+vide,vide,Sarlat-la-Canéda
+vide,vide,Marseille

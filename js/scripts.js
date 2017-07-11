@@ -11,7 +11,7 @@ $(document).ready(function(){
 function loadCSV(){
   $.ajax({
       type: "GET",
-      url: "liste_ecoles_29.txt",
+      url: "villes.txt",
       dataType: "text",
       success: function(data) {processData(data);}
    });
