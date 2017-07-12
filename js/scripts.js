@@ -1,11 +1,14 @@
+// PARAMÈTRES //
 var CSVPath = "villes.txt";
+var interval = 300; // intervalle avec lequel se lance la requête vers l'API geoloc
+var randomizeSamePoints = "true"; // permet d'étaler les points en random sur une zone, si la ville est la même.
+
+// VARS //
 var p = 0; // pointer qui s'incrémente à mesure que les requêtes sont lancées — pour naviguer dans lines[]
 var timer; // interval
-var interval = 300; // intervalle avec lequel se lance la requête vers l'API geoloc
 var lines = []; // stocke les lignes du csv
-var randomizeSamePoints = "true"; // permet d'étaler les points en random sur une zone, si la ville est la même.
-var headers;
-var villePosition;
+var headers; // En-têtes du tableau
+var villePosition; // position de la colonne 'ville' dans le CSV
 
 $(document).ready(function(){
   loadCSV();
