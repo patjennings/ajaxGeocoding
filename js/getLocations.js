@@ -1,10 +1,10 @@
 // PARAMÈTRES //
-var CSVPath = "map.csv";
-var interval = 300; // intervalle avec lequel se lance la requête vers l'API geoloc
+var CSVPath = "assets/base.csv";
+var interval = 500; // intervalle avec lequel se lance la requête vers l'API geoloc
 var randomizeSamePoints = "true"; // permet d'étaler les points en random sur une zone, si la ville est la même.
 
 // VARS //
-var p = 0; // pointer qui s'incrémente à mesure que les requêtes sont lancées — pour naviguer dans lines[]
+var p = 1; // pointer qui s'incrémente à mesure que les requêtes sont lancées — pour naviguer dans lines[] - on commence à 1, mpour éviter la ligne de header
 var timer; // interval
 var lines = []; // stocke les lignes du csv
 var headers; // En-têtes du tableau
@@ -21,6 +21,7 @@ function loadCSV(){
       dataType: "text",
       success: function(data) {processData(data);}
    });
+
 }
 
 function processData(allText) {
@@ -30,7 +31,6 @@ function processData(allText) {
     for (var i=0; i<allTextLines.length; i++) {
         var data = allTextLines[i].split(',');
 
-
         if (data.length == headers.length) {
 
             var tarr = [];
@@ -38,13 +38,16 @@ function processData(allText) {
                 tarr.push(/*headers[j]+":"+*/data[j]);
 
                 // On checke laquelle est la colonne City, pour établir la référence qui nous sert plus tard
-                if(headers[j] == "VILLE" || headers[j] == "ville" || headers[j] == "Ville" || headers[j] == "CITY" || headers[j] == "city" || headers[j] == "City"){
+                if(headers[j] == "VILLE" || headers[j] == "ville" || headers[j] == "Ville" || headers[j] == "CITY" || headers[j] == "city" || headers[j] == "City" || headers[j] == "adresse" || headers[j] == "Adresse" || headers[j] == "adress"){
                   villePosition = j;
                 }
             }
             lines.push(tarr);
         }
+
     }
+
+    displayHeaders();
     startRequestLauncher();
 }
 
@@ -62,16 +65,59 @@ function launchRequest(){
   	jsonpCallback: 'jsonCallback',
   	success: function(data)
   	{
-      displayData(data);
+      displayDataAsCSV(data);
   	},
   	error: function(e)
   	{
   	   console.log(e.message);
   	}
   });
+
+  // console.log("end");
 }
 
+function displayHeaders(){
+  var output = "id,";
+  for(var i = 0 ; i < headers.length ; i++){
+    output += lines[0][i]+",";
+  }
+  output += "lat,";
+  output += "long";
+  output += "<br/>";
 
+  $('#jsonp-results').append(output);
+}
+
+function displayDataAsCSV(data){
+  var id = p;
+  var lat, long;
+
+  var isAtPoint = checkSame(lines[p][villePosition]);//
+
+  if(isAtPoint == "true" && randomizeSamePoints == "true"){
+    var long = randomizePoint(data.features[0].geometry.coordinates[0]);
+    var lat = randomizePoint(data.features[0].geometry.coordinates[1]);
+
+  } else{
+    var long = data.features[0].geometry.coordinates[0];
+    var lat = data.features[0].geometry.coordinates[1];
+  }
+
+  // construction de l'output
+  var output = id+",";
+  for(var i = 0 ; i < headers.length ; i++){
+    output += lines[p][i]+",";
+  }
+  output += lat+",";
+  output += long;
+  output += "<br/>";
+
+  // on écrit l'output
+  $('#jsonp-results').append(output);
+
+  // on incrémente le pointer
+  incrementPointer();
+}
 
 function displayData(data){
   var id = p;
@@ -101,7 +147,7 @@ function displayData(data){
     output += '<div class="cell">'+lines[p][i]+',</div>';
   }
   output += '<div class="cell">'+lat+',</div>';
-  output += '<div class="cell">'+long+',</div>';
+  output += '<div class="cell">'+long+'</div>';
   output += '</div>';
 
   // on écrit l'output
