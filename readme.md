@@ -12,7 +12,7 @@ var CSVPath = "assets/base.csv";
 ```
 
 ##### Exemples
-- Input : `input/input_locations.csv`
+- Input : [input/input_locations.csv](input/input_locations.csv)
 - Output : [output/output_locations.csv](output/output_locations.csv)
 
 ## Obtenir le temps de route et la distance entre un point initial et de multiples destinations
@@ -35,5 +35,5 @@ var CSVPath = "assets/base_locations.csv";
 ```
 
 ##### Exemples
-- Input : `input/input_routes.csv`
-- Output : `output/output_routes.csv`
+- Input : [input/input_routes.csv](input/input_routes.csv)
+- Output : [output/output_routes.csv](output/output_routes.csv)
