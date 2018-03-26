@@ -1,5 +1,5 @@
 
-id,id,Nom,adresse,commentaires,lat,long,lat,long,duration,distance
+id,id,Nom,adresse,commentaires,lat,long,duration,distance
 1,1,Use Design,25 rue Henry Monnier - Paris, une agence de design,48.880514,2.337481,5h34,570.20 kms
 2,2,Hyptique,13 Cité joly - Paris, une autre agence de design,48.862651,2.382743,5h32,562.98 kms
 3,3,ESAM Caen,17 cours Caffarelli - Caen, une école,49.180415,-0.346498,3h50,403.25 kms

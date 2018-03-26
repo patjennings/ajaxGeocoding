@@ -87,8 +87,6 @@ function displayHeaders(){
   for(var i = 0 ; i < headers.length ; i++){
     output += lines[0][i]+",";
   }
-  output += "lat,";
-  output += "long,";
   output += "duration,";
   output += "distance";
   output += "<br/>";
