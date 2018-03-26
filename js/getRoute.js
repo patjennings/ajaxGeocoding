@@ -128,10 +128,10 @@ function durationToMinutes(_duration){
     var h, m;
     h = Math.floor(dm/60);
     m = dm-(h*60);
-    return h+":"+Math.round(m);
+    return h+"h"+Math.round(m);
   }
   else{
-    return "00:"+dm;
+    return "00h"+dm;
   }
 
 
