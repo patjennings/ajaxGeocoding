@@ -13,7 +13,7 @@ var CSVPath = "assets/base.csv";
 
 ##### Exemples
 - Input : `input/input_locations.csv`
-- Output : `output/output_locations.csv`
+- Output : [output/output_locations.csv](output/output_locations.csv)
 
 ## Obtenir le temps de route et la distance entre un point initial et de multiples destinations
 On se sert de l'api [OSRM](http://project-osrm.org/docs/v5.15.2/api/#general-options) pour obtenir les temps de trajets et les distances.
