@@ -1,5 +1,5 @@
 // PARAMÈTRES //
-var CSVPath = "assets/base.csv";
+var CSVPath = "input/input_locations.csv";
 var interval = 500; // intervalle avec lequel se lance la requête vers l'API geoloc
 var randomizeSamePoints = "true"; // permet d'étaler les points en random sur une zone, si la ville est la même.
 

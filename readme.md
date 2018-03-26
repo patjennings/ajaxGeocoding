@@ -11,13 +11,9 @@ Input :
 var CSVPath = "assets/base.csv";
 ```
 
-##### Exemple de CSV
-```csv
-Nom,adresse,commentaires
-Use Design,25 rue Henry Monnier - Paris, une agence de design
-Hyptique,13 Cité joly - Paris, une autre agence de design
-ESAM Caen,17, cours Caffarelli - Caen, une école
-```
+##### Exemples
+- Input : `input/input_locations.csv`
+- Output : `output/output_locations.csv`
 
 ## Obtenir le temps de route et la distance entre un point initial et de multiples destinations
 On se sert de l'api [OSRM](http://project-osrm.org/docs/v5.15.2/api/#general-options) pour obtenir les temps de trajets et les distances.
@@ -38,10 +34,6 @@ Renseigner l'adresse du csv dans `js/getRoute.js`
 var CSVPath = "assets/base_locations.csv";
 ```
 
-##### Exemple de CSV
-```csv
-id,Nom,adresse,commentaires,lat,long
-1,Use Design,25 rue Henry Monnier - Paris, une agence de design,48.880514,2.337481
-2,Hyptique,13 Cité joly - Paris, une autre agence de design,48.862651,2.382743
-3,ESAM Caen,17 cours Caffarelli - Caen, une école,49.180415,-0.346498
-```
+##### Exemples
+- Input : `input/input_routes.csv`
+- Output : `output/output_routes.csv`

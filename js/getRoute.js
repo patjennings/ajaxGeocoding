@@ -1,5 +1,5 @@
 // PARAMÈTRES //
-var CSVPath = "assets/base_locations.csv";
+var CSVPath = "input/input_routes.csv";
 var startingPoint = [-4.09904, 47.983397,]; //long lat
 var interval = 500; // intervalle avec lequel se lance la requête vers l'API geoloc
 var randomizeSamePoints = "true"; // permet d'étaler les points en random sur une zone, si la ville est la même.
@@ -110,8 +110,8 @@ function displayDataAsCSV(data){
   }
   // output += lat+",";
   // output += long+",";
-  output += durationToMinutes(duration)+"mn,";
-  output += metersToKilometers(distance)+" kms";
+  output += durationToMinutes(duration)+",";
+  output += metersToKilometers(distance);
   output += "<br/>";
 
   // on écrit l'output
@@ -123,14 +123,24 @@ function displayDataAsCSV(data){
 
 function durationToMinutes(_duration){
   var d = _duration;
-  var r = d/60;
-  return Math.round(r);
+  var dm = Math.round(d/60); // le temps en minutes
+  if(dm > 59){
+    var h, m;
+    h = Math.floor(dm/60);
+    m = dm-(h*60);
+    return h+":"+Math.round(m);
+  }
+  else{
+    return "00:"+dm;
+  }
+
+
 }
 
 function metersToKilometers(_distance){
   var d = _distance;
   var r = (d/1000).toFixed(2);
-  return r;
+  return r+" kms";
 }
 
 function incrementPointer(){
