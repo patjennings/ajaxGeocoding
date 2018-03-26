@@ -1,6 +1,8 @@
 ## Obtenir la géolocalisation à partir d'un fichier csv
 On se sert de l'api [adresse.data.gouv.fr](https://adresse.data.gouv.fr/api) pour obtenir la géolocalisation de nos adresses. On peut se servir simplement de villes, ou être plus fin et rentrer des adresses de rues.
-> curl http://localhost/ajaxGeocoding/getLocations.html
+```bash
+$ curl http://localhost/ajaxGeocoding/getLocations.html
+```
 
 Input :
 - lat départ
@@ -17,7 +19,9 @@ var CSVPath = "assets/base.csv";
 
 ## Obtenir le temps de route et la distance entre un point initial et de multiples destinations
 On se sert de l'api [OSRM](http://project-osrm.org/docs/v5.15.2/api/#general-options) pour obtenir les temps de trajets et les distances.
-> curl http://localhost/ajaxGeocoding/getRoute.html
+```bash
+$ curl http://localhost/ajaxGeocoding/getRoute.html
+```
 
 Input :
 - lat et long départ ― à renseigner dans le fichier (variable `startingPoint` in `js/getRoute.js`)
